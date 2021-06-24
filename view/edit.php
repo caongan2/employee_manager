@@ -2,9 +2,10 @@
 
 include "../vendor/autoload.php";
 use Src\EmployeeManager;
-$data = new EmployeeManager("data.json");
-//$employees = $data->getData();
+$data = new EmployeeManager("../src/data.json");
 $index = $_REQUEST['index'];
+$employees = $data->detailsData($index);
+
 ?>
 
 <!doctype html>
@@ -17,23 +18,24 @@ $index = $_REQUEST['index'];
     <title>Document</title>
 </head>
 <body>
+
 <form action="../action/update.php" method="post">
     <table>
         <tr>
             <td>Name:</td>
-            <td><input type="text" name="name"></td>
+            <td><input type="text" name="name" value="<?php echo $employees->getName()?>"></td>
         </tr>
         <tr>
             <td>Age:</td>
-            <td><input type="number" name="age"></td>
+            <td><input type="number" name="age" value="<?php echo $employees->getAge()?>"></td>
         </tr>
         <tr>
             <td>Addess:</td>
-            <td><input type="text" name="address"></td>
+            <td><input type="text" name="address" value="<?php echo $employees->getAddress()?>"></td>
         </tr>
         <tr>
             <td>Location:</td>
-            <td><input type="text" name="location"></td>
+            <td><input type="text" name="location" value="<?php echo $employees->getLocation()?>"></td>
         </tr>
         <tr>
             <td><input type="hidden" name="index" value="<?php echo $index ?>"></td>
@@ -43,3 +45,18 @@ $index = $_REQUEST['index'];
 </form>
 </body>
 </html>
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    $_SESSION['page'] = 'edit';
+    header('location: ../index2.php');
+}else{
+    include_once "edit.php";
+}
+//}else{
+//    header('location: ../index2.php');
+//}
+if (isset($_REQUEST['logOut'])) {
+    session_destroy();
+    header('location: ../index2.php');
+}

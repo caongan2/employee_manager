@@ -6,7 +6,7 @@ namespace Src;
 
 class EmployeeManager
 {
-    protected $employee;
+    protected  $employee;
     protected string $filePath;
 
     public function __construct($filePath)
@@ -25,8 +25,8 @@ class EmployeeManager
         $data = $this->getDataToFile();
         $this->employee = [];
         foreach ($data as $item) {
-            $employee = new Employee($item);
-            $this->employee[] = $employee;
+            $employees = new Employee($item);
+            $this->employee[] = $employees;
         }
         return $this->employee;
     }
@@ -56,5 +56,12 @@ class EmployeeManager
         $data = $this->getDataToFile();
         $data[$index] = $item;
         $this->saveDataToFile($data);
+    }
+
+    public function detailsData($index): Employee
+    {
+        $data = $this->getDataToFile();
+        $item = $data[$index];
+        return new Employee($item);
     }
 }

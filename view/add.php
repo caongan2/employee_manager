@@ -1,33 +1,87 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Required meta tags-->
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Register User</title>
+
+    <!-- Icons font CSS-->
+    <link href="../form_register/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="../form_register/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="../form_register/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="../form_register/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="../form_register/css/main.css" rel="stylesheet" media="all">
 </head>
 <body>
-<form action="../action/create.php" method="post">
-    <table>
-        <tr>
-            <td>Name:</td>
-            <td><input type="text" name="name"></td>
-        </tr>
-        <tr>
-            <td>Age:</td>
-            <td><input type="number" name="age"></td>
-        </tr>
-        <tr>
-            <td>Addess:</td>
-            <td><input type="text" name="address"></td>
-        </tr>
-        <tr>
-            <td>Location:</td>
-            <td><input type="text" name="location"></td>
-        </tr>
-    </table>
-    <input type="submit" value="Submit">
-</form>
+<body>
+<div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w780">
+        <div class="card card-3">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">Registration Info</h2>
+                <form action="../action/create.php" method="post">
+                    <div class="input-group">
+                        <input class="input--style-3" type="text" placeholder="Name" name="name">
+                    </div>
+                    <div class="input-group">
+                        <input class="input--style-3" type="text" placeholder="Age" name="age">
+                    </div>
+                    <div class="input-group">
+                        <input class="input--style-3" type="text" placeholder="Address" name="address">
+                    </div>
+                    <div class="input-group">
+                        <input class="input--style-3" type="password" placeholder="Location" name="location">
+                    </div>
+                    <div class="p-t-10">
+                        <button class="btn btn--pill btn--green" type="submit">Submit</button>
+                    </div>
+                    <div class="p-t-10">
+                        <a href="../home.php" class="btn btn--pill btn--green">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Jquery JS-->
+<script src="../form_register/vendor/jquery/jquery.min.js"></script>
+<!-- Vendor JS-->
+<script src="../form_register/vendor/select2/select2.min.js"></script>
+<script src="../form_register/vendor/datepicker/moment.min.js"></script>
+<script src="../form_register/vendor/datepicker/daterangepicker.js"></script>
+
+<!-- Main JS-->
+<script src="../form_register/js/global.js"></script>
+
 </body>
+
 </html>
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    $_SESSION['page'] = 'add';
+    header('location: ../index.php');
+}else{
+    include_once "add.php";
+}
+//}else{
+//    header('location: ../index2.php');
+//}
+if (isset($_REQUEST['logOut'])) {
+    session_destroy();
+    header('location: ../index.php');
+}

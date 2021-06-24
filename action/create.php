@@ -14,6 +14,6 @@ $item = [
     'location' => $location
 ];
 
-$data = new EmployeeManager("../data.json");
+$data = new EmployeeManager("../src/data.json");
 $data->addData($item);
-header("Location: ../index.php");
+header("Location: ../home.php");

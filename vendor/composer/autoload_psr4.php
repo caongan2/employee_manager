@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Src\\' => array($baseDir . '/src'),
+    'Login\\' => array($baseDir . '/login'),
 );
