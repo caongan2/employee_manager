@@ -17,7 +17,7 @@ if (isset($_REQUEST['logOut'])) {
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <a class="navbar-brand" href="">Codegym Moncity</a>
+    <a class="navbar-brand" href=""><button class="btn btn-danger">Codegym Moncity</button></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,10 +25,10 @@ if (isset($_REQUEST['logOut'])) {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">Home <span class="sr-only"></span></a>
+                <a class="nav-link" href="index.php"><button class="btn btn-success">Home</button><span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="view/add.php">Thêm Mới</a>
+                <a class="nav-link" href="view/add.php"><button class="btn btn-success">Thêm Mới</button></a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" method="post">
